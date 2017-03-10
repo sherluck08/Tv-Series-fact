@@ -8,11 +8,13 @@ import requests
 def menu():
     print("\n")
     print("---------------------------------")
-    print("----------Series fun fact----------")
+    print("--------Series fun fact----------")
     print("---------------------------------")
     print("\n")
 
-def crawl():
+# This function ask the user to enter the name of the movie they want to search_movie
+# and when it found it, it goes to the movie page
+def search():
 
     running = True
     while running:
@@ -40,7 +42,7 @@ def crawl():
             running = False
 
 
-#now program has now reach the movie page now is time to get the trivia link
+#This function below get the link of the "series fun fact" on the movie page
 def find_trivia_link(movie_sub_url, trivia_link):
 
     req = requests.get(trivia_link)
@@ -50,7 +52,7 @@ def find_trivia_link(movie_sub_url, trivia_link):
     full_trivia_page_url = movie_sub_url + href
     trivia(full_trivia_page_url)
 
-#This function get the trivia text on the trivia page
+#This function below fetch the series fun fact text
 def trivia(url):
 
     r = requests.get(url)
@@ -65,4 +67,4 @@ def trivia(url):
 
 
 if __name__ == '__main__':
-    crawl()
+    search()
