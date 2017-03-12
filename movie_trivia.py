@@ -8,7 +8,7 @@ import requests
 def menu():
     print("\n")
     print("---------------------------------")
-    print("--------Series fun fact----------")
+    print("--------Tv Series triva----------")
     print("---------------------------------")
     print("\n")
 
@@ -32,10 +32,10 @@ def search():
                 movie_page_link = 'http://www.imdb.com' + href
                 sub_moviepage_url = movie_page_link[:-17]
                 print('The link to the search movie {} is {}'.format(search_movie, movie_page_link))
-                find_trivia_link(sub_moviepage_url, movie_page_link)
+                find_trivia_link_on_movie_page(sub_moviepage_url, movie_page_link)
 
             except requests.exceptions.ConnectionError:
-                print("[+]Error: Network is down..")
+                print("[+] Error: Network is down..")
 
         else:
             print('[+] Quiting...')
@@ -43,7 +43,7 @@ def search():
 
 
 #This function below get the link of the "series fun fact" on the movie page
-def find_trivia_link(movie_sub_url, trivia_link):
+def find_trivia_link_on_movie_page(movie_sub_url, trivia_link):
 
     req = requests.get(trivia_link)
     soup = BeautifulSoup(req.content, 'html.parser')
