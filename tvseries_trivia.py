@@ -69,7 +69,7 @@ def trivia(url):
     soup = BeautifulSoup(html, 'html.parser')
     trivia_text = soup.find_all('div', {'class':'sodatext'})
     for text in trivia_text:
-        print("-----------------------------------------------------------------")
+        print("-" * 58)
         print(text.get_text())
     print("")
     print('[+] This is the end of the trivia')
